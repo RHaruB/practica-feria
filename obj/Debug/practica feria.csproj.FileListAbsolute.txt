@@ -1,0 +1,10 @@
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\bin\Debug\practica feria.exe.config
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\bin\Debug\practica feria.exe
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\bin\Debug\practica feria.pdb
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.csprojResolveAssemblyReference.cache
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica_feria.Form1.resources
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica_feria.Properties.Resources.resources
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.csproj.GenerateResource.Cache
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.exe
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.pdb
+C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica_feria.ventalumno.resources
