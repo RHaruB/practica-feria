@@ -30,6 +30,37 @@ namespace practica_feria
             label1.Text = e.Result.Text;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_profesor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ventalumno_Load(object sender, EventArgs e)
+        {
+            conexion_base conexion_nueva = new conexion_base();
+            conexion_nueva.conexiondb();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 principal = new Form1();
+            principal.Show();
+            this.Close();
+        }
     }
 }

@@ -8,3 +8,30 @@ C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica 
 C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.exe
 C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica feria.pdb
 C:\Users\Personal\Documents\Visual Studio 2017\Projects\practica feria\practica feria\obj\Debug\practica_feria.ventalumno.resources
+C:\Users\HP\Desktop\proyecto feria\bin\Debug\practica feria.exe.config
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica feria.exe
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica feria.pdb
+C:\Users\HP\Desktop\proyecto feria\bin\Debug\practica feria.exe
+C:\Users\HP\Desktop\proyecto feria\bin\Debug\practica feria.pdb
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica feria.csprojResolveAssemblyReference.cache
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica_feria.Form1.resources
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica_feria.Properties.Resources.resources
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica_feria.ventalumno.resources
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica feria.csproj.GenerateResource.Cache
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica_feria.docentefr.resources
+C:\Users\HP\Desktop\proyecto feria\obj\Debug\practica_feria.Aula.resources
+C:\Users\HP\Desktop\proyecto feria\bin\Debug\MySql.Data.dll
+C:\Users\HP\Desktop\proyecto feria\bin\Debug\MySql.Data.xml
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\practica feria.exe.config
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\practica feria.exe
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\practica feria.pdb
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\MySql.Data.xml
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csprojResolveAssemblyReference.cache
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Aula.resources
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.docentefr.resources
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Form1.resources
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Properties.Resources.resources
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.ventalumno.resources
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csproj.GenerateResource.Cache
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.exe
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.pdb

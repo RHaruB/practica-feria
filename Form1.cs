@@ -14,30 +14,27 @@ namespace practica_feria
 {
     public partial class Form1 : Form
     {
+        SpeechSynthesizer leer = new SpeechSynthesizer();
         public Form1()
         {
             InitializeComponent();
         }
         SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
-        SpeechSynthesizer leer = new SpeechSynthesizer();
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             leer.Rate = 0;
             leer.Volume = 100;
             leer.Speak(" Que deseas hacer ?");
             Choices lista = new Choices();
-            lista.Add(new string[] { "buscar alumno", "ingresar", "docente" });
+            lista.Add(new string[] { "alumno", "docente", "curso","aula"});
             Grammar gramatica = new Grammar(new GrammarBuilder(lista));
             try
             {
-
                 rec.SetInputToDefaultAudioDevice();
                 rec.LoadGrammar(gramatica);
                 rec.SpeechRecognized += reconocimiento;
                 rec.RecognizeAsync(RecognizeMode.Multiple);
-                
-
-
             }
             catch (Exception)
             {
@@ -47,34 +44,54 @@ namespace practica_feria
         }
             public void reconocimiento(object sender, SpeechRecognizedEventArgs e)
             {
-                if (e.Result.Text == "buscar alumno")
-                {
-                label1.Text = "alumno";
-                    leer.Volume = 100;
+                if (e.Result.Text == "alumno"){
+                alumno_bt.PerformClick();
+                }else if (e.Result.Text == "docente"){
+                docente_bt.PerformClick();
+                   /* leer.Volume = 100;
                     leer.Rate = 0;
-                //leer.Speak("Hola amo");
-                this.Hide();
-
-                ventalumno frm = new ventalumno();
-                frm.hablar(e);
-
-                frm.Show();
-            }
-                if (e.Result.Text == "docente")
-                {
-                  
-                    leer.Volume = 100;
+                    leer.Speak("Que docente deseas buscar?");
+                    leer.Speak(" por favor dime el nombre del profesor");
+                    this.Hide();
+                    docentefr nuevo_docente = new docentefr();
+                    nuevo_docente.Show();*/
+                }else if (e.Result.Text == "curso"|| e.Result.Text == "aula")
+            {
+                aula_bt.PerformClick();
+                   /* leer.Volume = 100;
                     leer.Rate = 0;
-                    leer.Speak("viernes");
-                }
-                if (e.Result.Text == "ingresar")
-                {
-                   
-                    leer.Volume = 100;
-                    leer.Rate = 0;
-                    leer.Speak("La inteligencia artificial viernes");
+                    leer.Speak("Que aula deseas buscar?");
+                    leer.Speak(" por favor dime el numero del aula");
+                    this.Hide();
+                    Aula nuevo_curso = new Aula();
+                    nuevo_curso.Show();*/
                 }
             }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //leer.Speak(" Que alumno deseas buscar?");
+            rec.RecognizeAsyncStop();
+            ventalumno nueva_venta = new ventalumno();
+            nueva_venta.Show();
+            this.Hide();
+        }
+
+        private void docente_bt_Click(object sender, EventArgs e)
+        {
+            rec.RecognizeAsyncStop();
+            docentefr nueva_ventana = new docentefr();
+            nueva_ventana.Show();
+            this.Hide();
+        }
+
+        private void aula_bt_Click(object sender, EventArgs e)
+        {
+            rec.RecognizeAsyncStop();
+            Aula nueva_ventana = new Aula();
+            nueva_ventana.Show();
+            this.Hide();
         }
     }
+}
 
