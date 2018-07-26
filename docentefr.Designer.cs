@@ -36,8 +36,8 @@
             this.paralelo_text = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Materia_text = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.horafin_text = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.texthorainici = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -59,6 +59,7 @@
             this.textBox_docente.Name = "textBox_docente";
             this.textBox_docente.Size = new System.Drawing.Size(100, 20);
             this.textBox_docente.TabIndex = 0;
+            this.textBox_docente.TextChanged += new System.EventHandler(this.textBox_docente_TextChanged);
             // 
             // comboBox_docente
             // 
@@ -126,6 +127,13 @@
             this.Materia_text.Size = new System.Drawing.Size(100, 20);
             this.Materia_text.TabIndex = 11;
             // 
+            // horafin_text
+            // 
+            this.horafin_text.Location = new System.Drawing.Point(126, 126);
+            this.horafin_text.Name = "horafin_text";
+            this.horafin_text.Size = new System.Drawing.Size(100, 20);
+            this.horafin_text.TabIndex = 9;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -134,13 +142,6 @@
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Materia";
-            // 
-            // horafin_text
-            // 
-            this.horafin_text.Location = new System.Drawing.Point(126, 126);
-            this.horafin_text.Name = "horafin_text";
-            this.horafin_text.Size = new System.Drawing.Size(100, 20);
-            this.horafin_text.TabIndex = 9;
             // 
             // label4
             // 

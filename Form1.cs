@@ -36,10 +36,10 @@ namespace practica_feria
                 rec.SpeechRecognized += reconocimiento;
                 rec.RecognizeAsync(RecognizeMode.Multiple);
             }
-            catch (Exception)
+            catch (Exception el)
             {
 
-                throw;
+                MessageBox.Show(el.Message);;
             }
         }
             public void reconocimiento(object sender, SpeechRecognizedEventArgs e)

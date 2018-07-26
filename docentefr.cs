@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
+using System.Speech.Recognition;
 
 namespace practica_feria
 {
     public partial class horainicio_text : Form
     {
+        public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+        SpeechSynthesizer leer = new SpeechSynthesizer();
+
+        escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
         public horainicio_text()
         {
@@ -37,7 +43,9 @@ namespace practica_feria
         {
             //conexion_base conexion_nueva = new conexion_base();
             //conexion_nueva.conexiondb();
+
             based.conexiondb();
+            escuchar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,5 +92,23 @@ namespace practica_feria
         {
             buscar(textBox_docente.Text);
         }
+        public void escuchar()
+        {
+            rec.SetInputToDefaultAudioDevice();
+            rec.LoadGrammar(new DictationGrammar());
+            rec.SpeechRecognized += _Recognition_SpeechRecognized;
+            rec.RecognizeAsync(RecognizeMode.Multiple);
+        }
+        public void _Recognition_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            textBox_docente.Text = e.Result.Text;
+            // System.Windows.Forms.MessageBox.Show(palabra);
+        }
+
+        private void textBox_docente_TextChanged(object sender, EventArgs e)
+        {
+            btbuscar.PerformClick();
+        }
     }
+
 }

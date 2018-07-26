@@ -24,10 +24,10 @@ namespace practica_feria
                 //System.Windows.Forms.MessageBox.Show("exito");
                 conexion.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                // System.Windows.Forms.MessageBox.Show(ex.Message);
-                throw ex;
+               // throw ex;
             }
         }
       /*  public string consultaaula(string direccion)

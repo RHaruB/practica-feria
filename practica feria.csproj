@@ -53,7 +53,6 @@
     <Compile Include="Aula.Designer.cs">
       <DependentUpon>Aula.cs</DependentUpon>
     </Compile>
-    <Compile Include="clalumno.cs" />
     <Compile Include="conexion_base.cs" />
     <Compile Include="docentefr.cs">
       <SubType>Form</SubType>
@@ -61,13 +60,13 @@
     <Compile Include="docentefr.Designer.cs">
       <DependentUpon>docentefr.cs</DependentUpon>
     </Compile>
+    <Compile Include="escucha.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ventalumno.cs">

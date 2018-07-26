@@ -7,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Recognition;
+using System.Speech.Synthesis;
 
 namespace practica_feria
 {
     public partial class Aula : Form
     {
+        public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+        SpeechSynthesizer leer = new SpeechSynthesizer();
+       
+        escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
+
+        //string pal, bandera;
         public Aula()
         {
             InitializeComponent();
@@ -20,10 +28,11 @@ namespace practica_feria
 
         private void Aula_Load(object sender, EventArgs e)
         {
-            //conexion_base conexion_nueva = new conexion_base();
+            
             based.conexiondb();
             based.conexion.Close();
-
+            nuevoescucha.hablar("que curso deseas saber");
+            escuchar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,8 +42,8 @@ namespace practica_feria
             this.Close();
 
         }
-
-        private void textBox_aula_TextChanged(object sender, EventArgs e)
+    
+        private void buscarbd()
         {
             try
             {
@@ -48,20 +57,48 @@ namespace practica_feria
                 {
                     direcion = based.consultar.GetString(0);
                 }
-                //pictureBox1.Image = new System.Drawing.Bitmap(direcion);
                 MessageBox.Show(direcion);
+                
+                pictureBox2.Image = new System.Drawing.Bitmap(direcion);
+                
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
 
-                MessageBox.Show(ex.Message);
+                 MessageBox.Show(ex.Message);
             }
             finally
             {
                 based.conexion.Close();
             }
-            
-            
         }
+
+        public void escuchar()
+        {
+            rec.SetInputToDefaultAudioDevice();
+            rec.LoadGrammar(new DictationGrammar());
+            rec.SpeechRecognized += _Recognition_SpeechRecognized;
+            rec.RecognizeAsync(RecognizeMode.Multiple);
+        }
+
+        private void textBox_aula_TextChanged(object sender, EventArgs e)
+        {
+            buscarbd();
+           /* rec.RecognizeAsyncStop();
+            nuevoescucha.escuchar();
+            if (nuevoescucha.palabra == "no") buscarbd();
+            else
+            {
+                nuevoescucha.rec.RecognizeAsyncStop();
+                escuchar();
+            }*/
+        }
+
+        public void _Recognition_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            textBox_aula.Text = e.Result.Text;
+            // System.Windows.Forms.MessageBox.Show(palabra);
+        }
+
     }
 }

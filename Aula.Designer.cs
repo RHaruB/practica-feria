@@ -48,7 +48,7 @@
             // 
             // textBox_aula
             // 
-            this.textBox_aula.Location = new System.Drawing.Point(290, 185);
+            this.textBox_aula.Location = new System.Drawing.Point(270, 174);
             this.textBox_aula.Name = "textBox_aula";
             this.textBox_aula.Size = new System.Drawing.Size(100, 20);
             this.textBox_aula.TabIndex = 1;
@@ -56,9 +56,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(221, 222);
+            this.pictureBox2.Location = new System.Drawing.Point(157, 200);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(222, 192);
+            this.pictureBox2.Size = new System.Drawing.Size(504, 309);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 426);
+            this.ClientSize = new System.Drawing.Size(806, 521);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.textBox_aula);
