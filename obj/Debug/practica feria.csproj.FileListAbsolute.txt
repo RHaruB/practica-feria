@@ -26,12 +26,14 @@ C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\pract
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\practica feria.exe
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\practica feria.pdb
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\bin\Debug\MySql.Data.xml
-C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csprojResolveAssemblyReference.cache
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Aula.resources
-C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.docentefr.resources
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Form1.resources
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.Properties.Resources.resources
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.ventalumno.resources
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csproj.GenerateResource.Cache
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.exe
 C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.pdb
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csprojAssemblyReference.cache
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica feria.csproj.CopyComplete
+C:\Users\Personal\Desktop\practica\proyecto feria\proyecto feria\obj\Debug\practica_feria.horainicio_text.resources

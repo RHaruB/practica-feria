@@ -80,7 +80,7 @@ namespace practica_feria
         private void docente_bt_Click(object sender, EventArgs e)
         {
             rec.RecognizeAsyncStop();
-            docentefr nueva_ventana = new docentefr();
+            horainicio_text nueva_ventana = new horainicio_text();
             nueva_ventana.Show();
             this.Hide();
         }

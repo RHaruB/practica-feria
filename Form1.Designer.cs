@@ -47,12 +47,15 @@
             // 
             // alumno_bt
             // 
+            this.alumno_bt.BackColor = System.Drawing.Color.White;
+            this.alumno_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.alumno_bt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.alumno_bt.Location = new System.Drawing.Point(12, 226);
             this.alumno_bt.Name = "alumno_bt";
             this.alumno_bt.Size = new System.Drawing.Size(75, 23);
             this.alumno_bt.TabIndex = 1;
             this.alumno_bt.Text = "Alumno";
-            this.alumno_bt.UseVisualStyleBackColor = true;
+            this.alumno_bt.UseVisualStyleBackColor = false;
             this.alumno_bt.Click += new System.EventHandler(this.button1_Click);
             // 
             // docente_bt

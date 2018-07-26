@@ -48,8 +48,8 @@ namespace practica_feria
                 {
                     direcion = based.consultar.GetString(0);
                 }
-                pictureBox1.Image = new System.Drawing.Bitmap(direcion);
-                //MessageBox.Show(direcion);
+                //pictureBox1.Image = new System.Drawing.Bitmap(direcion);
+                MessageBox.Show(direcion);
             }
             catch (Exception ex)
             {

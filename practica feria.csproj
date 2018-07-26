@@ -53,6 +53,7 @@
     <Compile Include="Aula.Designer.cs">
       <DependentUpon>Aula.cs</DependentUpon>
     </Compile>
+    <Compile Include="clalumno.cs" />
     <Compile Include="conexion_base.cs" />
     <Compile Include="docentefr.cs">
       <SubType>Form</SubType>

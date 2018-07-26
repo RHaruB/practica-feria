@@ -21,12 +21,12 @@ namespace practica_feria
                 conexion = new MySqlConnection();
                 conexion.ConnectionString = sql;
                 conexion.Open();
-                System.Windows.Forms.MessageBox.Show("exito");
+                //System.Windows.Forms.MessageBox.Show("exito");
                 conexion.Close();
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+               // System.Windows.Forms.MessageBox.Show(ex.Message);
                 throw ex;
             }
         }
