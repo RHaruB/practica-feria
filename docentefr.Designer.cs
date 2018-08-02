@@ -103,6 +103,7 @@
             this.groupBox_horario_docente.Size = new System.Drawing.Size(604, 213);
             this.groupBox_horario_docente.TabIndex = 3;
             this.groupBox_horario_docente.TabStop = false;
+            this.groupBox_horario_docente.Enter += new System.EventHandler(this.groupBox_horario_docente_Enter);
             // 
             // paralelo_text
             // 
@@ -173,6 +174,7 @@
             this.textcurso.Name = "textcurso";
             this.textcurso.Size = new System.Drawing.Size(100, 20);
             this.textcurso.TabIndex = 4;
+            this.textcurso.TextChanged += new System.EventHandler(this.textcurso_TextChanged);
             // 
             // textnombre
             // 
@@ -180,6 +182,7 @@
             this.textnombre.Name = "textnombre";
             this.textnombre.Size = new System.Drawing.Size(100, 20);
             this.textnombre.TabIndex = 3;
+            this.textnombre.TextChanged += new System.EventHandler(this.textnombre_TextChanged);
             // 
             // label3
             // 

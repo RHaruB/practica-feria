@@ -30,34 +30,7 @@ namespace practica_feria
                // throw ex;
             }
         }
-      /*  public string consultaaula(string direccion)
-        {
-            string img = "";
-            //conexiondb();
-            conexion = new MySqlConnection();
-            conexion.ConnectionString = sql;
-            conexion.Open();
-            try
-            {
-                
-                
-                MySqlCommand comandobuscar = new MySqlCommand("select imagen from aula01 au where cod_aula='305';",conexion);
-                MySqlDataReader reader = comandobuscar.ExecuteReader();
-                while (reader.Read())
-                {
-                    img = reader.GetString(1);
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                System.Windows.Forms.MessageBox.Show(ex.Message);;
-            }
-            conexion.Close();
-           
-
-            return img;
-        */
+       
+    
     }
 }

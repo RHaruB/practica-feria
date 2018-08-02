@@ -70,19 +70,18 @@ namespace practica_feria
                 while (based.consultar.Read())
                 {
                     textnombre.Text = based.consultar.GetString(0);
-                    textcurso.Text = based.consultar.GetString(3);
                     paralelo_text.Text = based.consultar.GetString(2);
                     Materia_text.Text = based.consultar.GetString(1);
-                    texthorainici.Text = Convert.ToString( based.consultar.GetMySqlDateTime(5));
-                    horafin_text.Text = Convert.ToString(based.consultar.GetMySqlDateTime(6));
-
+                   //texthorainici.Text = Convert.ToString( based.consultar.GetMySqlDateTime(5));
+                   // horafin_text.Text = Convert.ToString(based.consultar.GetMySqlDateTime(6));
+                    textcurso.Text = based.consultar.GetString(3);
                 }
                 based.conexion.Close();
             }
             catch (Exception el)
             {
 
-                MessageBox.Show(el.Message);
+               // MessageBox.Show(el.Message);
             }
             
             
@@ -107,7 +106,27 @@ namespace practica_feria
 
         private void textBox_docente_TextChanged(object sender, EventArgs e)
         {
-            btbuscar.PerformClick();
+            if (this.Text == "regresar" || this.Text == "salir")
+            {
+                button1.PerformClick();
+            }
+            else
+                btbuscar.PerformClick();
+        }
+
+        private void textnombre_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textcurso_TextChanged(object sender, EventArgs e)
+        {
+            leer.Speak("El Docente" + Convert.ToString(textnombre.Text) + "da clases de " + Convert.ToString(Materia_text.Text) + "  en el curso " + Convert.ToString(textcurso.Text));
+        }
+
+        private void groupBox_horario_docente_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

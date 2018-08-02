@@ -33,6 +33,8 @@
             this.textBox_ci_alumno = new System.Windows.Forms.TextBox();
             this.comboBox_opciones = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Materia_text = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.profesor_text = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,9 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.Materia_text = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btbuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -100,6 +101,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
             // 
+            // Materia_text
+            // 
+            this.Materia_text.Location = new System.Drawing.Point(128, 114);
+            this.Materia_text.Name = "Materia_text";
+            this.Materia_text.Size = new System.Drawing.Size(100, 20);
+            this.Materia_text.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Materia";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(333, 19);
@@ -145,6 +162,7 @@
             this.Nombre_txt.Name = "Nombre_txt";
             this.Nombre_txt.Size = new System.Drawing.Size(100, 20);
             this.Nombre_txt.TabIndex = 3;
+            this.Nombre_txt.TextChanged += new System.EventHandler(this.Nombre_txt_TextChanged);
             // 
             // label3
             // 
@@ -184,22 +202,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Materia_text
-            // 
-            this.Materia_text.Location = new System.Drawing.Point(128, 114);
-            this.Materia_text.Name = "Materia_text";
-            this.Materia_text.Size = new System.Drawing.Size(100, 20);
-            this.Materia_text.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Materia";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -209,11 +211,22 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Cedula";
             // 
+            // btbuscar
+            // 
+            this.btbuscar.Location = new System.Drawing.Point(494, 91);
+            this.btbuscar.Name = "btbuscar";
+            this.btbuscar.Size = new System.Drawing.Size(75, 23);
+            this.btbuscar.TabIndex = 7;
+            this.btbuscar.Text = "Buscar";
+            this.btbuscar.UseVisualStyleBackColor = true;
+            this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
+            // 
             // ventalumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 436);
+            this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -250,5 +263,6 @@
         private System.Windows.Forms.TextBox Materia_text;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btbuscar;
     }
 }

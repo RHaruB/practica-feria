@@ -83,6 +83,11 @@ namespace practica_feria
 
         private void textBox_aula_TextChanged(object sender, EventArgs e)
         {
+            if(this.Text== "regresar" || this.Text == "salir")
+            {
+                button1.PerformClick();
+            }
+                else
             buscarbd();
            /* rec.RecognizeAsyncStop();
             nuevoescucha.escuchar();

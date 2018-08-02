@@ -32,5 +32,30 @@ namespace practica_feria
         {
             leer.Speak(habla);
         }
+        public Choices gramaticadocente(string select)
+        {
+            conexion_base based = new conexion_base();
+            Choices lista = new Choices();
+            try
+            {
+                based.query.CommandText = select;
+                based.conexion.Open();
+                based.query.Connection = based.conexion;
+                based.consultar = based.query.ExecuteReader();
+                while (based.consultar.Read())
+                {
+                    lista.Add( based.consultar.GetString(0));
+                }
+                //lista.Add(new string[] { "alumno", "docente", "curso", "aula" });
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                //throw;
+            }
+            
+            //Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            return lista;
+        }
     }
 }

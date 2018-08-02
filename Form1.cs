@@ -48,13 +48,7 @@ namespace practica_feria
                 alumno_bt.PerformClick();
                 }else if (e.Result.Text == "docente"){
                 docente_bt.PerformClick();
-                   /* leer.Volume = 100;
-                    leer.Rate = 0;
-                    leer.Speak("Que docente deseas buscar?");
-                    leer.Speak(" por favor dime el nombre del profesor");
-                    this.Hide();
-                    docentefr nuevo_docente = new docentefr();
-                    nuevo_docente.Show();*/
+                  
                 }else if (e.Result.Text == "curso"|| e.Result.Text == "aula")
             {
                 aula_bt.PerformClick();
@@ -70,7 +64,6 @@ namespace practica_feria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //leer.Speak(" Que alumno deseas buscar?");
             rec.RecognizeAsyncStop();
             ventalumno nueva_venta = new ventalumno();
             nueva_venta.Show();
@@ -91,6 +84,11 @@ namespace practica_feria
             Aula nueva_ventana = new Aula();
             nueva_ventana.Show();
             this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
