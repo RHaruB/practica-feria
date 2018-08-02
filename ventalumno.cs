@@ -16,10 +16,11 @@ namespace practica_feria
     {
         conexion_base conexion_nueva = new conexion_base();
         SpeechSynthesizer leer = new SpeechSynthesizer();
+        SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
         public ventalumno(  )
         {
             InitializeComponent();
-
+            escuchar();
         }
 
         private void label1_Click()
@@ -56,7 +57,19 @@ namespace practica_feria
         {
             conexion_nueva.conexiondb();
         }
+        public void _Recognition_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            textBox_ci_alumno.Text = e.Result.Text;
+            // System.Windows.Forms.MessageBox.Show(palabra);
+        }
 
+        public void escuchar()
+        {
+            rec.SetInputToDefaultAudioDevice();
+            rec.LoadGrammar(new DictationGrammar());
+            rec.SpeechRecognized += _Recognition_SpeechRecognized;
+            rec.RecognizeAsync(RecognizeMode.Multiple);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 principal = new Form1();
@@ -108,6 +121,11 @@ namespace practica_feria
         private void Nombre_txt_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void textBox_ci_alumno_TextChanged(object sender, EventArgs e)
+        {
+            btbuscar.PerformClick();
         }
     }
 }

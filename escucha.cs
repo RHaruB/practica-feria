@@ -57,5 +57,39 @@ namespace practica_feria
             //Grammar gramatica = new Grammar(new GrammarBuilder(lista));
             return lista;
         }
+        public string retornar()
+        {
+            
+                leer.Rate = 0;
+                leer.Volume = 100;
+                leer.Speak(" si deseas salir solo dilo ?");
+                Choices lista = new Choices();
+                lista.Add(new string[] { "salir", "retornar", "papa" });
+                Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+                try
+                {
+                    rec.SetInputToDefaultAudioDevice();
+                    rec.LoadGrammar(gramatica);
+                    rec.SpeechRecognized += reconocimiento;
+                    rec.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch (Exception el)
+                {
+
+                    //MessageBox.Show(el.Message); ;
+                }
+            rec.RecognizeAsyncStop();
+            System.Windows.Forms.MessageBox.Show("si llego");
+            //palabra = "salir";
+            return palabra;
+
+        }
+        public void reconocimiento(object sender, SpeechRecognizedEventArgs e)
+        {
+            if (e.Result.Text == "salir"|| e.Result.Text == "retornar" || e.Result.Text == "papa")
+            {
+                palabra = "salir";
+            }
+        }
     }
 }

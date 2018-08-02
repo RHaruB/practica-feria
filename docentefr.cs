@@ -121,12 +121,50 @@ namespace practica_feria
 
         private void textcurso_TextChanged(object sender, EventArgs e)
         {
+            rec.RecognizeAsyncStop();
             leer.Speak("El Docente" + Convert.ToString(textnombre.Text) + "da clases de " + Convert.ToString(Materia_text.Text) + "  en el curso " + Convert.ToString(textcurso.Text));
+            // string palabra=nuevoescucha.retornar();
+            // if(palabra=="salir" ) button1.PerformClick();
+            retornar();
         }
 
         private void groupBox_horario_docente_Enter(object sender, EventArgs e)
         {
 
+        }
+        public void retornar()
+        {
+
+            leer.Rate = 0;
+            leer.Volume = 100;
+            leer.Speak(" si deseas salir solo dilo ?");
+            Choices lista = new Choices();
+            lista.Add(new string[] { "salir", "retornar", "papa", "volver" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            try
+            {
+                rec.SetInputToDefaultAudioDevice();
+                rec.LoadGrammar(gramatica);
+                rec.SpeechRecognized += reconocimiento1;
+                rec.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception el)
+            {
+
+                //MessageBox.Show(el.Message); ;
+            }
+            rec.RecognizeAsyncStop();
+            System.Windows.Forms.MessageBox.Show("si llego");
+            //palabra = "salir";
+            //return palabra;
+
+        }
+        public void reconocimiento1(object sender, SpeechRecognizedEventArgs e)
+        {
+            if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa")
+            {
+                button1.PerformClick();
+            }
         }
     }
 

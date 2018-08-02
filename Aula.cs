@@ -19,7 +19,7 @@ namespace practica_feria
        
         escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
-
+        string ban = "i";
         //string pal, bandera;
         public Aula()
         {
@@ -57,10 +57,12 @@ namespace practica_feria
                 {
                     direcion = based.consultar.GetString(0);
                 }
-                MessageBox.Show(direcion);
-                
-                pictureBox2.Image = new System.Drawing.Bitmap(direcion);
-                
+                //MessageBox.Show(direcion);
+                pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(0));
+                rec.RecognizeAsyncStop();
+                leer.Speak("ese es el curso" + textBox_aula.Text);
+
+
             }
             catch (Exception ex )
             {
@@ -105,5 +107,9 @@ namespace practica_feria
             // System.Windows.Forms.MessageBox.Show(palabra);
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

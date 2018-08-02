@@ -68,6 +68,7 @@
             this.textBox_ci_alumno.Name = "textBox_ci_alumno";
             this.textBox_ci_alumno.Size = new System.Drawing.Size(100, 20);
             this.textBox_ci_alumno.TabIndex = 2;
+            this.textBox_ci_alumno.TextChanged += new System.EventHandler(this.textBox_ci_alumno_TextChanged);
             // 
             // comboBox_opciones
             // 
