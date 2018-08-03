@@ -27,7 +27,7 @@ namespace practica_feria
             leer.Volume = 100;
             leer.Speak(" Que deseas hacer ?");
             Choices lista = new Choices();
-            lista.Add(new string[] { "alumno", "docente", "curso","aula"});
+            lista.Add(new string[] { "alumno", "PROFESOR", "docente", "curso","aula"});
             Grammar gramatica = new Grammar(new GrammarBuilder(lista));
             try
             {
@@ -46,7 +46,8 @@ namespace practica_feria
             {
                 if (e.Result.Text == "alumno"){
                 alumno_bt.PerformClick();
-                }else if (e.Result.Text == "docente"){
+                }else if (e.Result.Text == "docente"|| e.Result.Text == "PROFESOR")
+            {
                 docente_bt.PerformClick();
                   
                 }else if (e.Result.Text == "curso"|| e.Result.Text == "aula")

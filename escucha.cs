@@ -12,8 +12,8 @@ namespace practica_feria
     {
         public string palabra { set; get; }
         public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
-        SpeechSynthesizer leer = new SpeechSynthesizer();
-
+        public SpeechSynthesizer leer = new SpeechSynthesizer();
+        
 
         public void escuchar()
         {
@@ -34,17 +34,20 @@ namespace practica_feria
         }
         public Choices gramaticadocente(string select)
         {
-            conexion_base based = new conexion_base();
-            Choices lista = new Choices();
+             conexion_base based = new conexion_base();
+             Choices lista_docente = new Choices();
+            
             try
             {
                 based.query.CommandText = select;
+                based.conexiondb();
                 based.conexion.Open();
+                //based.conexion.Open();
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
                 while (based.consultar.Read())
                 {
-                    lista.Add( based.consultar.GetString(0));
+                    lista_docente.Add( based.consultar.GetString(0));
                 }
                 //lista.Add(new string[] { "alumno", "docente", "curso", "aula" });
             }
@@ -55,7 +58,7 @@ namespace practica_feria
             }
             
             //Grammar gramatica = new Grammar(new GrammarBuilder(lista));
-            return lista;
+            return lista_docente;
         }
         public string retornar()
         {
@@ -63,9 +66,9 @@ namespace practica_feria
                 leer.Rate = 0;
                 leer.Volume = 100;
                 leer.Speak(" si deseas salir solo dilo ?");
-                Choices lista = new Choices();
-                lista.Add(new string[] { "salir", "retornar", "papa" });
-                Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+                Choices lista_1 = new Choices();
+                lista_1.Add(new string[] { "salir", "retornar", "papa" });
+                Grammar gramatica = new Grammar(new GrammarBuilder(lista_1));
                 try
                 {
                     rec.SetInputToDefaultAudioDevice();
@@ -80,7 +83,7 @@ namespace practica_feria
                 }
             rec.RecognizeAsyncStop();
             System.Windows.Forms.MessageBox.Show("si llego");
-            //palabra = "salir";
+            palabra = "salir";
             return palabra;
 
         }

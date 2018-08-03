@@ -17,6 +17,7 @@ namespace practica_feria
         conexion_base conexion_nueva = new conexion_base();
         SpeechSynthesizer leer = new SpeechSynthesizer();
         SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+        escucha nuevoescucha=new escucha();
         public ventalumno(  )
         {
             InitializeComponent();
@@ -65,8 +66,14 @@ namespace practica_feria
 
         public void escuchar()
         {
+            string selectdoc = "select cedula from alu01";
+
             rec.SetInputToDefaultAudioDevice();
-            rec.LoadGrammar(new DictationGrammar());
+            Choices listadocente = new Choices();
+            listadocente.Add(nuevoescucha.gramaticadocente(selectdoc));
+            Grammar gramatica = new Grammar(new GrammarBuilder(listadocente));
+            //Grammar gramatica = ;
+            rec.LoadGrammar(gramatica); 
             rec.SpeechRecognized += _Recognition_SpeechRecognized;
             rec.RecognizeAsync(RecognizeMode.Multiple);
         }
@@ -126,6 +133,11 @@ namespace practica_feria
         private void textBox_ci_alumno_TextChanged(object sender, EventArgs e)
         {
             btbuscar.PerformClick();
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

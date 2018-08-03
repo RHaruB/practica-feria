@@ -63,7 +63,7 @@ namespace practica_feria
         {
             try
             {
-                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro like '%" + nombre + "%'";
+                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "'";
                 based.conexion.Open();
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
@@ -93,13 +93,21 @@ namespace practica_feria
         }
         public void escuchar()
         {
+            string selectdoc = "select nom_pro from pro01";
+            
             rec.SetInputToDefaultAudioDevice();
-            rec.LoadGrammar(new DictationGrammar());
+            Choices listadocente = new Choices();
+            listadocente.Add(nuevoescucha.gramaticadocente(selectdoc)  );
+            Grammar gramatica = new Grammar(new GrammarBuilder(listadocente));
+            //Grammar gramatica = ;
+            rec.LoadGrammar(gramatica);
+            //rec.LoadGrammar(new DictationGrammar());
             rec.SpeechRecognized += _Recognition_SpeechRecognized;
             rec.RecognizeAsync(RecognizeMode.Multiple);
         }
         public void _Recognition_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+           // MessageBox.Show(e.Result.Text);
             textBox_docente.Text = e.Result.Text;
             // System.Windows.Forms.MessageBox.Show(palabra);
         }
@@ -123,9 +131,9 @@ namespace practica_feria
         {
             rec.RecognizeAsyncStop();
             leer.Speak("El Docente" + Convert.ToString(textnombre.Text) + "da clases de " + Convert.ToString(Materia_text.Text) + "  en el curso " + Convert.ToString(textcurso.Text));
-            // string palabra=nuevoescucha.retornar();
-            // if(palabra=="salir" ) button1.PerformClick();
-            retornar();
+             string palabra=nuevoescucha.retornar();
+             if(palabra=="salir" ) button1.PerformClick();
+            //retornar();
         }
 
         private void groupBox_horario_docente_Enter(object sender, EventArgs e)
