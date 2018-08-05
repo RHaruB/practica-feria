@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ventalumno));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox_ci_alumno = new System.Windows.Forms.TextBox();
@@ -47,6 +48,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btbuscar = new System.Windows.Forms.Button();
+            this.lbhora = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbfecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -223,11 +227,42 @@
             this.btbuscar.UseVisualStyleBackColor = true;
             this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
             // 
+            // lbhora
+            // 
+            this.lbhora.AutoSize = true;
+            this.lbhora.BackColor = System.Drawing.Color.Transparent;
+            this.lbhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbhora.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbhora.Location = new System.Drawing.Point(13, 12);
+            this.lbhora.Name = "lbhora";
+            this.lbhora.Size = new System.Drawing.Size(109, 39);
+            this.lbhora.TabIndex = 8;
+            this.lbhora.Text = "label7";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbfecha
+            // 
+            this.lbfecha.AutoSize = true;
+            this.lbfecha.BackColor = System.Drawing.Color.Transparent;
+            this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbfecha.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbfecha.Location = new System.Drawing.Point(12, 73);
+            this.lbfecha.Name = "lbfecha";
+            this.lbfecha.Size = new System.Drawing.Size(126, 46);
+            this.lbfecha.TabIndex = 9;
+            this.lbfecha.Text = "label7";
+            // 
             // ventalumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 436);
+            this.Controls.Add(this.lbfecha);
+            this.Controls.Add(this.lbhora);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
@@ -266,5 +301,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btbuscar;
+        private System.Windows.Forms.Label lbhora;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbfecha;
     }
 }

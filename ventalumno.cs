@@ -139,5 +139,11 @@ namespace practica_feria
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbhora.Text = DateTime.Now.ToString("HH:MM:ss");
+            lbfecha.Text = DateTime.Now.ToString("ddddd");
+        }
     }
 }
