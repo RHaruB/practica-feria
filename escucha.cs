@@ -91,8 +91,26 @@ namespace practica_feria
         {
             if (e.Result.Text == "salir"|| e.Result.Text == "retornar" || e.Result.Text == "papa")
             {
-                palabra = "salir";
+                palabra = "window.close();";
             }
+        }
+
+        public void escucharsalir()
+        {
+           SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
+        Choices lista = new Choices();
+            lista.Add(new string[] { "salir", "retornar" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            rec1.SetInputToDefaultAudioDevice();
+            rec1.LoadGrammar(gramatica);
+            rec1.SpeechRecognized += verificasalir;
+            rec1.RecognizeAsync(RecognizeMode.Multiple);
+        }
+
+        public void verificasalir(object sender, SpeechRecognizedEventArgs e)
+        {
+            if(e.Result.Text=="salir"|| e.Result.Text=="retornar") palabra = "si";
+            // System.Windows.Forms.MessageBox.Show(palabra);
         }
     }
 }

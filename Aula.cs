@@ -49,7 +49,7 @@ namespace practica_feria
             {
                 string direcion = "";
                 string cod = textBox_aula.Text;
-                based.query.CommandText = "select imagen from aula01 au where au.cod_aula='" + cod + "'";
+                based.query.CommandText = "select imagen from aula01 au where au.cod_aula ='" + cod + "'";
                 based.conexion.Open();
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
@@ -61,6 +61,11 @@ namespace practica_feria
                 pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(0));
                 rec.RecognizeAsyncStop();
                 leer.Speak("ese es el curso" + textBox_aula.Text);
+                nuevoescucha.escucharsalir();
+                if(nuevoescucha.palabra == "si")
+                {
+                    button1.PerformClick();
+                }
 
 
             }

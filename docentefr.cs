@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
 
+
 namespace practica_feria
 {
     public partial class horainicio_text : Form
@@ -19,9 +20,12 @@ namespace practica_feria
 
         escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
+        string hora_actual;
         public horainicio_text()
         {
             InitializeComponent();
+            hora_actual = DateTime.Now.ToString("HH:mm:ss");
+            
         }
 
         private void docentecbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,25 +67,29 @@ namespace practica_feria
         {
             try
             {
-                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "'";
+                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "' and '"+hora_actual+"' between ma.hora_ini and ma.hora_fin ";
                 based.conexion.Open();
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
                 while (based.consultar.Read())
                 {
                     textnombre.Text = based.consultar.GetString(0);
+                    pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(4));
                     paralelo_text.Text = based.consultar.GetString(2);
                     Materia_text.Text = based.consultar.GetString(1);
-                   //texthorainici.Text = Convert.ToString( based.consultar.GetMySqlDateTime(5));
-                   // horafin_text.Text = Convert.ToString(based.consultar.GetMySqlDateTime(6));
+                    texthorainici.Text =  based.consultar.GetString(5);
+                    horafin_text.Text = based.consultar.GetString(6);
                     textcurso.Text = based.consultar.GetString(3);
+                    
+    //                MessageBox.Show(based.consultar.GetString(4));
+
                 }
                 based.conexion.Close();
             }
             catch (Exception el)
             {
 
-               // MessageBox.Show(el.Message);
+                MessageBox.Show(el.Message);
             }
             
             
