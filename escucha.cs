@@ -56,6 +56,10 @@ namespace practica_feria
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 //throw;
             }
+            finally
+            {
+                based.conexion.Close();
+            }
             
             //Grammar gramatica = new Grammar(new GrammarBuilder(lista));
             return lista_docente;
@@ -82,7 +86,7 @@ namespace practica_feria
                     //MessageBox.Show(el.Message); ;
                 }
             rec.RecognizeAsyncStop();
-            System.Windows.Forms.MessageBox.Show("si llego");
+            //System.Windows.Forms.MessageBox.Show("si llego");
             palabra = "salir";
             return palabra;
 

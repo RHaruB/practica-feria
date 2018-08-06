@@ -82,6 +82,7 @@ namespace practica_feria
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            rec.RecognizeAsyncStop();
             Form1 principal = new Form1();
             principal.Show();
             this.Close();

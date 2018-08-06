@@ -37,6 +37,7 @@ namespace practica_feria
 
         private void button1_Click(object sender, EventArgs e)
         {
+            rec.RecognizeAsyncStop();
             Form1 principal = new Form1();
             principal.Show();
             this.Close();
@@ -72,7 +73,7 @@ namespace practica_feria
             catch (Exception ex )
             {
 
-                 MessageBox.Show(ex.Message);
+               //  MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -114,6 +115,16 @@ namespace practica_feria
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            nuevoescucha.escucharsalir();
+            if (nuevoescucha.palabra == "si")
+            {
+                button1.PerformClick();
+            }
 
         }
     }
