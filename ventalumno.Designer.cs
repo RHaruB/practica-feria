@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ventalumno));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox_ci_alumno = new System.Windows.Forms.TextBox();
             this.comboBox_opciones = new System.Windows.Forms.ComboBox();
@@ -58,10 +57,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::practica_feria.Properties.Resources.WhatsApp_Image_2018_07_26_at_3_34_22_PM;
             this.pictureBox1.Location = new System.Drawing.Point(181, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -233,7 +233,7 @@
             this.lbhora.AutoSize = true;
             this.lbhora.BackColor = System.Drawing.Color.Transparent;
             this.lbhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbhora.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbhora.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbhora.Location = new System.Drawing.Point(13, 12);
             this.lbhora.Name = "lbhora";
             this.lbhora.Size = new System.Drawing.Size(109, 39);
@@ -250,7 +250,7 @@
             this.lbfecha.AutoSize = true;
             this.lbfecha.BackColor = System.Drawing.Color.Transparent;
             this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfecha.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbfecha.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbfecha.Location = new System.Drawing.Point(12, 73);
             this.lbfecha.Name = "lbfecha";
             this.lbfecha.Size = new System.Drawing.Size(126, 46);

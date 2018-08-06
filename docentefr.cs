@@ -170,7 +170,7 @@ namespace practica_feria
                 //MessageBox.Show(el.Message); ;
             }
             rec.RecognizeAsyncStop();
-            System.Windows.Forms.MessageBox.Show("si llego");
+            //System.Windows.Forms.MessageBox.Show("si llego");
             //palabra = "salir";
             //return palabra;
 
