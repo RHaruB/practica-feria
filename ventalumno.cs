@@ -18,6 +18,7 @@ namespace practica_feria
         SpeechSynthesizer leer = new SpeechSynthesizer();
         SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
         SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
+        SpeechRecognitionEngine rec2 = new SpeechRecognitionEngine();
         escucha nuevoescucha=new escucha();
        public  string actual, palabra, hora_siguiente, dia;
         public ventalumno(  )
@@ -93,6 +94,7 @@ namespace practica_feria
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            rec2.RecognizeAsyncStop();
             rec1.RecognizeAsyncStop();
             rec.RecognizeAsyncStop();
             Form1 principal = new Form1();
@@ -102,6 +104,7 @@ namespace practica_feria
 
         public void buscar(string cedula)
         {
+            rec.RecognizeAsyncStop();
             Persona profesor = new Persona();
             List<Persona> profesor1 = new List<Persona>();
             try
@@ -167,6 +170,7 @@ namespace practica_feria
         private void textBox_ci_alumno_TextChanged(object sender, EventArgs e)
         {
             btbuscar.PerformClick();
+            retornar();
         }
 
         private void groupBox1_Enter_1(object sender, EventArgs e)
@@ -176,20 +180,19 @@ namespace practica_feria
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lbhora.Text = DateTime.Now.ToString("HH:mm:ss");
-            lbfecha.Text = DateTime.Now.ToString("ddddd").ToUpper();
+          
         }
        public void comprobar(string text)
         {
             rec1.RecognizeAsyncStop();
             if (text == "todo") {
                 
-                MessageBox.Show("todo");
-                groudataalumno.Visible = true;
+               // MessageBox.Show("todo");
+               groupBox2.Visible = true;
                
             }
-            if (text == "actual") MessageBox.Show("actual");
-            if (text == "siguiente") MessageBox.Show("siguiente");
+            if (text == "actual") ; //MessageBox.Show("actual");
+                if (text == "siguiente") ;// MessageBox.Show("siguiente");
         }
         public void escucharinicial()
         {
@@ -216,13 +219,13 @@ namespace practica_feria
         public void reconocimiento(object sender, SpeechRecognizedEventArgs e)
         {
             rec1.RecognizeAsyncStop();
-            MessageBox.Show(e.Result.Text);
+           // MessageBox.Show(e.Result.Text);
             if (e.Result.Text == "todo")
             {
                 palabra = "todo";
                 rec1.RecognizeAsyncStop();
                 //MessageBox.Show("Test");
-                groudataalumno.Visible = true;
+                groupBox2.Visible = true;
                 escuchar();
             }
             else if (e.Result.Text == "actual")
@@ -236,6 +239,41 @@ namespace practica_feria
                 escuchar();
                 palabra = "siguiente";
 
+            }
+        }
+        public void retornar()
+        {
+
+            leer.Rate = 0;
+            leer.Volume = 100;
+            leer.Speak(" si deseas salir solo dilo");
+            Choices lista = new Choices();
+            lista.Add(new string[] { "salir", "retornar", "papa", "volver" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            try
+            {
+                rec2.SetInputToDefaultAudioDevice();
+                rec2.LoadGrammar(gramatica);
+                rec2.SpeechRecognized += reconocimiento1;
+                rec2.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception el)
+            {
+
+                MessageBox.Show(el.Message); ;
+            }
+            //rec.RecognizeAsyncStop();
+            //System.Windows.Forms.MessageBox.Show("si llego");
+            //palabra = "salir";
+            //return palabra;
+
+        }
+        public void reconocimiento1(object sender, SpeechRecognizedEventArgs e)
+        {
+            //textBox1.Text = e.Result.Text;
+            if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa")
+            {
+                  button1.PerformClick();
             }
         }
     }

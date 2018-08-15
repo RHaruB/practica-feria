@@ -114,5 +114,32 @@
   <ItemGroup>
     <None Include="Resources\WhatsApp Image 2018-07-26 at 3.34.22 PM.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celeste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ia.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asistente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asistentesinfondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\futuro.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\degradadogris.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asistente.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

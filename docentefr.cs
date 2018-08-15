@@ -17,6 +17,7 @@ namespace practica_feria
     {
         public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
         public SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
+        public SpeechRecognitionEngine rec2 = new SpeechRecognitionEngine();
         SpeechSynthesizer leer = new SpeechSynthesizer();
 
         escucha nuevoescucha = new escucha();
@@ -31,7 +32,7 @@ namespace practica_feria
             //hora_actual ="21:00:00";
             dia = DateTime.Now.ToString("ddddd").ToUpper();
             dia = dia.Substring(0, 1);
-            dia = "L";
+           // dia = "L";
             // MessageBox.Show(dia);
 
         }
@@ -63,7 +64,9 @@ namespace practica_feria
 
         private void button1_Click(object sender, EventArgs e)
         {
+            rec2.RecognizeAsyncStop();
             rec.RecognizeAsyncStop();
+            rec1.RecognizeAsyncStop();
             Form1 principal = new Form1();
             principal.Show();
             this.Close();
@@ -131,7 +134,11 @@ namespace practica_feria
 
         private void btbuscar_Click(object sender, EventArgs e)
         {
+            rec.RecognizeAsyncStop();
+            rec1.RecognizeAsyncStop();
             buscar(textBox_docente.Text);
+            retornar();
+
         }
         public void escuchar()
         {
@@ -188,23 +195,23 @@ namespace practica_feria
 
             leer.Rate = 0;
             leer.Volume = 100;
-            leer.Speak(" si deseas salir solo dilo ?");
+            leer.Speak(" si deseas salir solo dilo");
             Choices lista = new Choices();
             lista.Add(new string[] { "salir", "retornar", "papa", "volver" });
             Grammar gramatica = new Grammar(new GrammarBuilder(lista));
             try
             {
-                rec.SetInputToDefaultAudioDevice();
-                rec.LoadGrammar(gramatica);
-                rec.SpeechRecognized += reconocimiento1;
-                rec.RecognizeAsync(RecognizeMode.Multiple);
+                rec2.SetInputToDefaultAudioDevice();
+                rec2.LoadGrammar(gramatica);
+                rec2.SpeechRecognized += reconocimiento1;
+                rec2.RecognizeAsync(RecognizeMode.Multiple);
             }
             catch (Exception el)
             {
 
-                //MessageBox.Show(el.Message); ;
+                MessageBox.Show(el.Message); ;
             }
-            rec.RecognizeAsyncStop();
+            //rec.RecognizeAsyncStop();
             //System.Windows.Forms.MessageBox.Show("si llego");
             //palabra = "salir";
             //return palabra;
@@ -212,10 +219,16 @@ namespace practica_feria
         }
         public void reconocimiento1(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa")
+            textBox1.Text = e.Result.Text;
+            if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa" )
             {
-                button1.PerformClick();
+              //  button1.PerformClick();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "salir") button1.PerformClick();
         }
 
         private void groudatadocente_Enter(object sender, EventArgs e)

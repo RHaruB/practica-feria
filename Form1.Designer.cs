@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.alumno_bt = new System.Windows.Forms.Button();
             this.docente_bt = new System.Windows.Forms.Button();
@@ -38,9 +37,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Image = global::practica_feria.Properties.Resources.WhatsApp_Image_2018_07_26_at_3_34_22_PM;
-            this.pictureBox1.Location = new System.Drawing.Point(-10, -2);
+            this.pictureBox1.BackgroundImage = global::practica_feria.Properties.Resources.degradadogris;
+            this.pictureBox1.Image = global::practica_feria.Properties.Resources.asistentesinfondo;
+            this.pictureBox1.Location = new System.Drawing.Point(-6, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(298, 265);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -85,6 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::practica_feria.Properties.Resources.asistente1;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.aula_bt);
             this.Controls.Add(this.docente_bt);

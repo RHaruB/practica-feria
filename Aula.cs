@@ -15,6 +15,7 @@ namespace practica_feria
     public partial class Aula : Form
     {
         public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+        public SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
         SpeechSynthesizer leer = new SpeechSynthesizer();
        
         escucha nuevoescucha = new escucha();
@@ -37,6 +38,7 @@ namespace practica_feria
 
         private void button1_Click(object sender, EventArgs e)
         {
+            rec1.RecognizeAsyncStop(); 
             rec.RecognizeAsyncStop();
             Form1 principal = new Form1();
             principal.Show();
@@ -62,6 +64,7 @@ namespace practica_feria
                 pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(0));
                 rec.RecognizeAsyncStop();
                 leer.Speak("ese es el curso" + textBox_aula.Text);
+                retornar();
                 /*nuevoescucha.escucharsalir();
                 if(nuevoescucha.palabra == "si")
                 {
@@ -132,6 +135,41 @@ namespace practica_feria
                 button1.PerformClick();
             }
             */
+        }
+        public void retornar()
+        {
+
+            leer.Rate = 0;
+            leer.Volume = 100;
+            leer.Speak(" si deseas salir solo dilo");
+            Choices lista = new Choices();
+            lista.Add(new string[] { "salir", "retornar", "papa", "volver" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            try
+            {
+                rec1.SetInputToDefaultAudioDevice();
+                rec1.LoadGrammar(gramatica);
+                rec1.SpeechRecognized += reconocimiento1;
+                rec1.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception el)
+            {
+
+                MessageBox.Show(el.Message); ;
+            }
+            //rec.RecognizeAsyncStop();
+            //System.Windows.Forms.MessageBox.Show("si llego");
+            //palabra = "salir";
+            //return palabra;
+
+        }
+        public void reconocimiento1(object sender, SpeechRecognizedEventArgs e)
+        {
+            //textBox1.Text = e.Result.Text;
+            if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa")
+            {
+                 button1.PerformClick();
+            }
         }
     }
 }

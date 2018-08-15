@@ -80,7 +80,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::practica_feria.Properties.Resources.WhatsApp_Image_2018_07_26_at_3_34_22_PM;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::practica_feria.Properties.Resources.asistentesinfondo;
             this.pictureBox1.Location = new System.Drawing.Point(221, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 145);
@@ -90,6 +91,7 @@
             // 
             // groupBox_horario_docente
             // 
+            this.groupBox_horario_docente.BackColor = System.Drawing.Color.Transparent;
             this.groupBox_horario_docente.Controls.Add(this.paralelo_text);
             this.groupBox_horario_docente.Controls.Add(this.label6);
             this.groupBox_horario_docente.Controls.Add(this.Materia_text);
@@ -241,7 +243,7 @@
             // 
             // groudatadocente
             // 
-            this.groudatadocente.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groudatadocente.BackColor = System.Drawing.Color.Transparent;
             this.groudatadocente.Controls.Add(this.dataGridView1);
             this.groudatadocente.Location = new System.Drawing.Point(12, 189);
             this.groudatadocente.Name = "groudatadocente";
@@ -265,11 +267,15 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // horainicio_text
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::practica_feria.Properties.Resources.degradadogris;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(767, 536);
             this.Controls.Add(this.groudatadocente);
             this.Controls.Add(this.textBox1);

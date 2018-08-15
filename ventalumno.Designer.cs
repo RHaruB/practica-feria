@@ -32,8 +32,6 @@
             this.textBox_ci_alumno = new System.Windows.Forms.TextBox();
             this.comboBox_opciones = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groudataalumno = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Materia_text = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -48,18 +46,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btbuscar = new System.Windows.Forms.Button();
-            this.lbhora = new System.Windows.Forms.Label();
-            this.lbfecha = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groudataalumno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::practica_feria.Properties.Resources.WhatsApp_Image_2018_07_26_at_3_34_22_PM;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::practica_feria.Properties.Resources.asistentesinfondo;
             this.pictureBox1.Location = new System.Drawing.Point(181, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 149);
@@ -90,7 +89,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groudataalumno);
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.Materia_text);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.pictureBox2);
@@ -109,25 +108,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
-            // 
-            // groudataalumno
-            // 
-            this.groudataalumno.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groudataalumno.Controls.Add(this.dataGridView1);
-            this.groudataalumno.Location = new System.Drawing.Point(8, 0);
-            this.groudataalumno.Name = "groudataalumno";
-            this.groudataalumno.Size = new System.Drawing.Size(649, 246);
-            this.groudataalumno.TabIndex = 10;
-            this.groudataalumno.TabStop = false;
-            this.groudataalumno.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 11);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(629, 223);
-            this.dataGridView1.TabIndex = 0;
             // 
             // Materia_text
             // 
@@ -250,37 +230,32 @@
             this.btbuscar.UseVisualStyleBackColor = true;
             this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
             // 
-            // lbhora
+            // groupBox2
             // 
-            this.lbhora.AutoSize = true;
-            this.lbhora.BackColor = System.Drawing.Color.Transparent;
-            this.lbhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbhora.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbhora.Location = new System.Drawing.Point(13, 12);
-            this.lbhora.Name = "lbhora";
-            this.lbhora.Size = new System.Drawing.Size(109, 39);
-            this.lbhora.TabIndex = 8;
-            this.lbhora.Text = "label7";
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(18, 208);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(637, 258);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Visible = false;
             // 
-            // lbfecha
+            // dataGridView1
             // 
-            this.lbfecha.AutoSize = true;
-            this.lbfecha.BackColor = System.Drawing.Color.Transparent;
-            this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfecha.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbfecha.Location = new System.Drawing.Point(12, 73);
-            this.lbfecha.Name = "lbfecha";
-            this.lbfecha.Size = new System.Drawing.Size(126, 46);
-            this.lbfecha.TabIndex = 9;
-            this.lbfecha.Text = "label7";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(38, 36);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(551, 195);
+            this.dataGridView1.TabIndex = 0;
             // 
             // ventalumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::practica_feria.Properties.Resources.degradadogris;
             this.ClientSize = new System.Drawing.Size(710, 512);
-            this.Controls.Add(this.lbfecha);
-            this.Controls.Add(this.lbhora);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
@@ -294,9 +269,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groudataalumno.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,9 +296,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btbuscar;
-        private System.Windows.Forms.Label lbhora;
-        private System.Windows.Forms.Label lbfecha;
-        private System.Windows.Forms.GroupBox groudataalumno;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

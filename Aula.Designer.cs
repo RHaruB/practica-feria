@@ -40,7 +40,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::practica_feria.Properties.Resources.WhatsApp_Image_2018_07_26_at_3_34_22_PM;
+            this.pictureBox1.Image = global::practica_feria.Properties.Resources.asistentesinfondo;
             this.pictureBox1.Location = new System.Drawing.Point(221, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(222, 152);
@@ -58,6 +58,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Location = new System.Drawing.Point(101, 200);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(504, 309);
@@ -85,6 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::practica_feria.Properties.Resources.degradadogris;
             this.ClientSize = new System.Drawing.Size(806, 521);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
