@@ -42,14 +42,14 @@ namespace practica_feria
                 based.query.CommandText = select;
                 based.conexiondb();
                 based.conexion.Open();
-                //based.conexion.Open();
+              
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
                 while (based.consultar.Read())
                 {
                     lista_docente.Add( based.consultar.GetString(0));
                 }
-                //lista.Add(new string[] { "alumno", "docente", "curso", "aula" });
+                
             }
             catch (Exception ex)
             {
@@ -61,60 +61,47 @@ namespace practica_feria
                 based.conexion.Close();
             }
             
-            //Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+    
             return lista_docente;
         }
-        public string retornar()
+        public void escucharinicial()
         {
-            
-                leer.Rate = 0;
-                leer.Volume = 100;
-                leer.Speak(" si deseas salir solo dilo ?");
-                Choices lista_1 = new Choices();
-                lista_1.Add(new string[] { "salir", "retornar", "papa" });
-                Grammar gramatica = new Grammar(new GrammarBuilder(lista_1));
-                try
-                {
-                    rec.SetInputToDefaultAudioDevice();
-                    rec.LoadGrammar(gramatica);
-                    rec.SpeechRecognized += reconocimiento;
-                    rec.RecognizeAsync(RecognizeMode.Multiple);
-                }
-                catch (Exception el)
-                {
+            leer.Rate = 0;
+            leer.Volume = 100;
+            leer.Speak(" que horario deseas ver ?");
+            leer.Speak(" todo el horario del dia de hoy, horario actual o horario sigueinte");
+            Choices lista = new Choices();
+            lista.Add(new string[] { "todo","actual","siguiente" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            try
+            {
+                rec.SetInputToDefaultAudioDevice();
+                rec.LoadGrammar(gramatica);
+                rec.SpeechRecognized += reconocimiento;
+                rec.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception el)
+            {
 
-                    //MessageBox.Show(el.Message); ;
-                }
-            rec.RecognizeAsyncStop();
-            //System.Windows.Forms.MessageBox.Show("si llego");
-            palabra = "salir";
-            return palabra;
-
+                System.Windows.Forms.MessageBox.Show(el.Message);
+            }
         }
         public void reconocimiento(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Text == "salir"|| e.Result.Text == "retornar" || e.Result.Text == "papa")
+            if (e.Result.Text == "todo")
             {
-                palabra = "window.close();";
+                palabra = "todo";
             }
-        }
+            else if (e.Result.Text == "actual")
+            {
+                palabra = "actual";
 
-        public void escucharsalir()
-        {
-           SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
-        Choices lista = new Choices();
-            lista.Add(new string[] { "salir", "retornar" });
-            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
-            rec1.SetInputToDefaultAudioDevice();
-            rec1.LoadGrammar(gramatica);
-            rec1.SpeechRecognized += verificasalir;
-            rec1.RecognizeAsync(RecognizeMode.Multiple);
-        }
+            }
+            else if (e.Result.Text == "siguiente")
+            {
+                palabra = "siguiente";
 
-        public void verificasalir(object sender, SpeechRecognizedEventArgs e)
-        {
-            if(e.Result.Text=="salir"|| e.Result.Text=="retornar") palabra = "si";
-            // System.Windows.Forms.MessageBox.Show(palabra);
+            }
         }
     }
 }

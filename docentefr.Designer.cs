@@ -47,9 +47,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btbuscar = new System.Windows.Forms.Button();
+            this.groudatadocente = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_horario_docente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groudatadocente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_docente
@@ -98,11 +103,12 @@
             this.groupBox_horario_docente.Controls.Add(this.label3);
             this.groupBox_horario_docente.Controls.Add(this.label2);
             this.groupBox_horario_docente.Controls.Add(this.label1);
-            this.groupBox_horario_docente.Location = new System.Drawing.Point(12, 209);
+            this.groupBox_horario_docente.Location = new System.Drawing.Point(12, 190);
             this.groupBox_horario_docente.Name = "groupBox_horario_docente";
-            this.groupBox_horario_docente.Size = new System.Drawing.Size(604, 213);
+            this.groupBox_horario_docente.Size = new System.Drawing.Size(718, 331);
             this.groupBox_horario_docente.TabIndex = 3;
             this.groupBox_horario_docente.TabStop = false;
+            this.groupBox_horario_docente.Visible = false;
             this.groupBox_horario_docente.Enter += new System.EventHandler(this.groupBox_horario_docente_Enter);
             // 
             // paralelo_text
@@ -162,9 +168,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(375, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(264, 9);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(209, 188);
+            this.pictureBox2.Size = new System.Drawing.Size(428, 300);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -233,11 +239,40 @@
             this.btbuscar.UseVisualStyleBackColor = true;
             this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
             // 
+            // groudatadocente
+            // 
+            this.groudatadocente.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groudatadocente.Controls.Add(this.dataGridView1);
+            this.groudatadocente.Location = new System.Drawing.Point(12, 189);
+            this.groudatadocente.Name = "groudatadocente";
+            this.groudatadocente.Size = new System.Drawing.Size(645, 258);
+            this.groudatadocente.TabIndex = 6;
+            this.groudatadocente.TabStop = false;
+            this.groudatadocente.Visible = false;
+            this.groudatadocente.Enter += new System.EventHandler(this.groudatadocente_Enter);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(22, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(607, 212);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(526, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            // 
             // horainicio_text
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 434);
+            this.ClientSize = new System.Drawing.Size(767, 536);
+            this.Controls.Add(this.groudatadocente);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox_horario_docente);
@@ -251,6 +286,8 @@
             this.groupBox_horario_docente.ResumeLayout(false);
             this.groupBox_horario_docente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groudatadocente.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +314,8 @@
         private System.Windows.Forms.TextBox horafin_text;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btbuscar;
+        private System.Windows.Forms.GroupBox groudatadocente;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

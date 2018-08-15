@@ -16,16 +16,24 @@ namespace practica_feria
     public partial class horainicio_text : Form
     {
         public SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+        public SpeechRecognitionEngine rec1 = new SpeechRecognitionEngine();
         SpeechSynthesizer leer = new SpeechSynthesizer();
 
         escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
-        string hora_actual;
+        string hora_actual, dia, palabra, hora_siguiente;
         public horainicio_text()
         {
             InitializeComponent();
+            hora_siguiente = DateTime.Now.AddHours(+1).ToString("HH:mm:ss");
             hora_actual = DateTime.Now.ToString("HH:mm:ss");
-            
+            //MessageBox.Show(hora_actual);
+            //hora_actual ="21:00:00";
+            dia = DateTime.Now.ToString("ddddd").ToUpper();
+            dia = dia.Substring(0, 1);
+            dia = "L";
+            // MessageBox.Show(dia);
+
         }
 
         private void docentecbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,7 +57,8 @@ namespace practica_feria
             //conexion_nueva.conexiondb();
 
             based.conexiondb();
-            escuchar();
+            //escuchar();
+            escucharinicial();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,25 +75,49 @@ namespace practica_feria
         }
         public void buscar(string nombre)
         {
+            Persona profesor = new Persona();
+            List<Persona> profesor1 = new List<Persona>();
             try
             {
-                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "' and '"+hora_actual+"' between ma.hora_ini and ma.hora_fin ";
+                based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin, ma.cod_diia  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "' and '" + hora_actual + "' between ma.hora_ini and ma.hora_fin and ma.cod_diia='" + dia + "' ";
+                if (palabra == "todo")
+                {
+                    based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin, ma.cod_diia  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "' and  ma.cod_diia='" + dia + "' ";
+
+                }else if(palabra == "siguiente") based.query.CommandText = "select p.nom_pro, m.nom_mat, m.paralelo, au.cod_aula, au.imagen, ma.hora_ini, ma.hora_fin, ma.cod_diia  from pro01 p join mat01 m on (p.cod_pro=m.cod_pro) join mathor01 ma on (m.cod_mat=ma.cod_mat and m.paralelo=ma.paralelo and m.cod_carrera=ma.cod_carrera and m.cod_jornada=ma.cod_jornada and m.periodo=ma.periodo) join aula01 au on (ma.cod_aula=au.cod_aula) where p.nom_pro ='" + nombre + "' and '" + hora_siguiente + "' between ma.hora_ini and ma.hora_fin and ma.cod_diia='" + dia + "' ";
+
                 based.conexion.Open();
                 based.query.Connection = based.conexion;
                 based.consultar = based.query.ExecuteReader();
                 while (based.consultar.Read())
                 {
-                    textnombre.Text = based.consultar.GetString(0);
-                    pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(4));
-                    paralelo_text.Text = based.consultar.GetString(2);
-                    Materia_text.Text = based.consultar.GetString(1);
-                    texthorainici.Text =  based.consultar.GetString(5);
-                    horafin_text.Text = based.consultar.GetString(6);
-                    textcurso.Text = based.consultar.GetString(3);
-                    
-    //                MessageBox.Show(based.consultar.GetString(4));
+                    if (palabra == "todo")
+                    {
+                        profesor.nombre = based.consultar.GetString(0);
+                        profesor.materia = based.consultar.GetString(1);
+                        profesor.hora_inicio = based.consultar.GetString(5);
+                        profesor.hora_fin = based.consultar.GetString(6);
+                        profesor.curso = based.consultar.GetString(3);
+                        profesor1.Add(profesor);
+                    }
+                    else
+                    {
+                        textnombre.Text = based.consultar.GetString(0);
+                        pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(4));
+                        paralelo_text.Text = based.consultar.GetString(2);
+
+                        Materia_text.Text = based.consultar.GetString(1);
+
+                        texthorainici.Text = based.consultar.GetString(5);
+                        horafin_text.Text = based.consultar.GetString(6);
+
+                        textcurso.Text = based.consultar.GetString(3);
+                    }
+                    //                MessageBox.Show(based.consultar.GetString(4));
 
                 }
+                dataGridView1.DataSource = profesor1;
+               
                 based.conexion.Close();
             }
             catch (Exception el)
@@ -114,6 +147,7 @@ namespace practica_feria
             rec.SpeechRecognized += _Recognition_SpeechRecognized;
             rec.RecognizeAsync(RecognizeMode.Multiple);
         }
+       
         public void _Recognition_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
            // MessageBox.Show(e.Result.Text);
@@ -140,8 +174,8 @@ namespace practica_feria
         {
             rec.RecognizeAsyncStop();
             leer.Speak("El Docente" + Convert.ToString(textnombre.Text) + "da clases de " + Convert.ToString(Materia_text.Text) + "  en el curso " + Convert.ToString(textcurso.Text));
-             string palabra=nuevoescucha.retornar();
-             if(palabra=="salir" ) button1.PerformClick();
+            // string palabra=nuevoescucha.retornar();
+             //if(palabra=="salir" ) button1.PerformClick();
             //retornar();
         }
 
@@ -181,6 +215,62 @@ namespace practica_feria
             if (e.Result.Text == "salir" || e.Result.Text == "volver" || e.Result.Text == "papa")
             {
                 button1.PerformClick();
+            }
+        }
+
+        private void groudatadocente_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        public void escucharinicial()
+        {
+            leer.Rate = 0;
+            leer.Volume = 100;
+            leer.Speak(" que horario deseas ver ?");
+            leer.Speak(" todo el horario del dia de hoy, horario actual o horario siguiente");
+            Choices lista = new Choices();
+            lista.Add(new string[] { "todo", "actual", "siguiente" });
+            Grammar gramatica = new Grammar(new GrammarBuilder(lista));
+            try
+            {
+                rec1.SetInputToDefaultAudioDevice();
+                rec1.LoadGrammar(gramatica);
+                rec1.SpeechRecognized += reconocimiento;
+                rec1.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception el)
+            {
+
+                System.Windows.Forms.MessageBox.Show(el.Message);
+            }
+        }
+        public void reconocimiento(object sender, SpeechRecognizedEventArgs e)
+        {
+           // MessageBox.Show(e.Result.Text);
+            if (e.Result.Text == "todo")
+            {
+                palabra = "todo";
+
+                rec1.RecognizeAsyncStop();
+                //MessageBox.Show("Test");
+                groudatadocente.Visible = true;
+                
+                escuchar();
+            }
+            else if (e.Result.Text == "actual")
+            {
+                rec1.RecognizeAsyncStop();
+                groupBox_horario_docente.Visible = true;
+                palabra = "actual";
+                escuchar();
+            }
+            else if (e.Result.Text == "siguiente")
+            {
+                groupBox_horario_docente.Visible = true;
+                rec1.RecognizeAsyncStop();
+                palabra = "siguiente";
+                escuchar();
             }
         }
     }

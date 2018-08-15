@@ -19,7 +19,7 @@ namespace practica_feria
        
         escucha nuevoescucha = new escucha();
         conexion_base based = new conexion_base();
-        string ban = "i";
+        //string ban = "i";
         //string pal, bandera;
         public Aula()
         {
@@ -62,11 +62,11 @@ namespace practica_feria
                 pictureBox2.Image = new System.Drawing.Bitmap(based.consultar.GetString(0));
                 rec.RecognizeAsyncStop();
                 leer.Speak("ese es el curso" + textBox_aula.Text);
-                nuevoescucha.escucharsalir();
+                /*nuevoescucha.escucharsalir();
                 if(nuevoescucha.palabra == "si")
                 {
                     button1.PerformClick();
-                }
+                }*/
 
 
             }
@@ -83,8 +83,14 @@ namespace practica_feria
 
         public void escuchar()
         {
+            string selectdoc = "select cod_aula from aula01";
+
             rec.SetInputToDefaultAudioDevice();
-            rec.LoadGrammar(new DictationGrammar());
+            Choices listadocente = new Choices();
+            listadocente.Add(nuevoescucha.gramaticadocente(selectdoc));
+            Grammar gramatica = new Grammar(new GrammarBuilder(listadocente));
+            //Grammar gramatica = ;
+            rec.LoadGrammar(gramatica);
             rec.SpeechRecognized += _Recognition_SpeechRecognized;
             rec.RecognizeAsync(RecognizeMode.Multiple);
         }
@@ -120,12 +126,12 @@ namespace practica_feria
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            nuevoescucha.escucharsalir();
+           /* nuevoescucha.escucharsalir();
             if (nuevoescucha.palabra == "si")
             {
                 button1.PerformClick();
             }
-
+            */
         }
     }
 }

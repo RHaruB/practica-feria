@@ -53,13 +53,7 @@ namespace practica_feria
                 }else if (e.Result.Text == "curso"|| e.Result.Text == "aula")
             {
                 aula_bt.PerformClick();
-                   /* leer.Volume = 100;
-                    leer.Rate = 0;
-                    leer.Speak("Que aula deseas buscar?");
-                    leer.Speak(" por favor dime el numero del aula");
-                    this.Hide();
-                    Aula nuevo_curso = new Aula();
-                    nuevo_curso.Show();*/
+                 
                 }
             }
 
