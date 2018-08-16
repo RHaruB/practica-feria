@@ -32,7 +32,7 @@ namespace practica_feria
             //hora_actual ="21:00:00";
             dia = DateTime.Now.ToString("ddddd").ToUpper();
             dia = dia.Substring(0, 1);
-           // dia = "L";
+           //l dia = "L";
             // MessageBox.Show(dia);
 
         }

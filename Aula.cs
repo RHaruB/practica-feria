@@ -102,7 +102,7 @@ namespace practica_feria
         {
             if(this.Text== "regresar" || this.Text == "salir")
             {
-                button1.PerformClick();
+               // button1.PerformClick();
             }
                 else
             buscarbd();

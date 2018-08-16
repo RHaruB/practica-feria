@@ -105,8 +105,8 @@ namespace practica_feria
         public void buscar(string cedula)
         {
             rec.RecognizeAsyncStop();
-            Persona profesor = new Persona();
-            List<Persona> profesor1 = new List<Persona>();
+            alumno profesor = new alumno();
+            List<alumno> profesor1 = new List<alumno>();
             try
             {
                 conexion_nueva.query.CommandText = "select a.cedula, a.nombres, a.apellidos, d.nom_mat, e.nom_pro, h.cod_aula, g.hora_ini, g.hora_fin, h.imagen, g.cod_diia from alu01 a join est01 b on (a.cedula = b.cedula) join matxest01 c on(b.cedula = c.cedula) join mat01 d on(c.cod_carrera = d.cod_carrera and c.cod_jornada = d.cod_jornada and c.cod_mat = d.cod_mat and c.paralelo = d.paralelo and c.periodo = d.periodo) join pro01 e on(d.cod_pro = e.cod_pro) join mat01 f on(e.cod_pro = f.cod_pro) join mathor01 g on(f.cod_mat = g.cod_mat) join aula01 h on(g.cod_aula = h.cod_aula) where a.cedula = '" + cedula + "' and '"+actual+"' between g.hora_ini and g.hora_fin and g.cod_diia ='"+dia+"' ";
@@ -119,11 +119,12 @@ namespace practica_feria
                 {
                     if (palabra == "todo")
                     {
-                        profesor.nombre = conexion_nueva.consultar.GetString(0);
-                        profesor.materia = conexion_nueva.consultar.GetString(1);
-                        profesor.hora_inicio = conexion_nueva.consultar.GetString(5);
-                        profesor.hora_fin = conexion_nueva.consultar.GetString(6);
-                        profesor.curso = conexion_nueva.consultar.GetString(3);
+                        profesor.nombre = conexion_nueva.consultar.GetString(1);
+                        profesor.materia = conexion_nueva.consultar.GetString(3);
+                        profesor.hora_inicio = conexion_nueva.consultar.GetString(6);
+                        profesor.hora_fin = conexion_nueva.consultar.GetString(7);
+                        profesor.curso = conexion_nueva.consultar.GetString(5);
+                        profesor.docente= conexion_nueva.consultar.GetString(4);
                         profesor1.Add(profesor);
                     }
                     else
